@@ -1,7 +1,7 @@
 # dataset settings
 dataset_type = 'ImageNet'
 data_preprocessor = dict(
-    num_classes=1000,
+    num_classes=4,
     # RGB format normalization parameters
     mean=[123.675, 116.28, 103.53],
     std=[58.395, 57.12, 57.375],
@@ -19,7 +19,7 @@ train_pipeline = [
         scale=224,
         backend='pillow',
         interpolation='bicubic'),
-    dict(type='RandomFlip', prob=0.0, direction='horizontal'),
+    dict(type='RandomFlip', prob=0.5, direction='horizontal'),
     dict(
         type='RandAugment',
         policies='timm_increasing',
