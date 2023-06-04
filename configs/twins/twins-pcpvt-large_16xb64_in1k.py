@@ -39,4 +39,6 @@ test_dataloader = dict(
     )
 )
 
+val_evaluator = dict(type='Accuracy', topk=(1, 2))
 
+test_evaluator = val_evaluator
