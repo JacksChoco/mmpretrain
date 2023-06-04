@@ -7,7 +7,7 @@ data_root="DiseaseID-1"
 
 # dataset settings
 train_dataloader = dict(
-    batch_size=8,
+    batch_size=64,
     dataset=dict(
         type='CustomDataset',
         data_root=data_root + "/train",
@@ -18,6 +18,7 @@ train_dataloader = dict(
 )
 
 val_dataloader = dict(
+    batch_size=64,
     dataset=dict(
         type='CustomDataset',
         data_root=data_root + '/valid',
@@ -28,6 +29,7 @@ val_dataloader = dict(
 )
 
 test_dataloader = dict(
+    batch_size=64,
     dataset=dict(
         type='CustomDataset',
         ann_file='',
