@@ -10,7 +10,9 @@ train_dataloader = dict(
     batch_size=64,
     dataset=dict(
         type='CustomDataset',
-        data_prefix=data_root + '/train',
+        data_root=data_root,
+        ann_file='',
+        data_prefix='/train',
         with_label=True,   # or False for unsupervised tasks        
     )
 )
