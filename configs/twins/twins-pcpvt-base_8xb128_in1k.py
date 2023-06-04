@@ -12,7 +12,7 @@ train_dataloader = dict(batch_size=16)
 optim_wrapper = dict(
     optimizer=dict(
         type='AdamW',
-        lr=5e-4 * 128 * 16 / 512,  # learning rate for 128 batch size, 8 gpu.
+        lr=0.02,  # learning rate for 128 batch size, 8 gpu.
         weight_decay=0.05,
         eps=1e-8,
         betas=(0.9, 0.999)),
