@@ -20,7 +20,9 @@ train_dataloader = dict(
 val_dataloader = dict(
     dataset=dict(
         type='CustomDataset',
-        data_prefix=data_root + '/valid',
+        data_root=data_root + '/valid',
+        ann_file='',
+        data_prefix='',
         with_label=True,   # or False for unsupervised tasks        
     )
 )
@@ -28,7 +30,9 @@ val_dataloader = dict(
 test_dataloader = dict(
     dataset=dict(
         type='CustomDataset',
-        data_prefix=data_root + '/test',
+        ann_file='',
+        data_prefix='',
+        data_root=data_root + '/test',
         with_label=True,   # or False for unsupervised tasks        
     )
 )
