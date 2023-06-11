@@ -3,7 +3,7 @@ _base_ = ['twins-pcpvt-base_8xb128_in1k.py']
 # model settings
 model = dict(backbone=dict(arch='large'), head=dict(in_channels=512))
 
-data_root="DiseaseID-1"
+data_root="caries"
 
 # dataset settings
 train_dataloader = dict(
