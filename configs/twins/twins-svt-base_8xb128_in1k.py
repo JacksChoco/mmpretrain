@@ -6,13 +6,13 @@ _base_ = [
 ]
 
 # dataset settings
-train_dataloader = dict(batch_size=128)
+train_dataloader = dict(batch_size=256)
 
 # schedule settings
 optim_wrapper = dict(
     optimizer=dict(
         type='AdamW',
-        lr=5e-4 * 128 * 8 / 512,  # learning rate for 128 batch size, 8 gpu.
+        lr=5e-4 * 128 * 256 / 512,  # learning rate for 128 batch size, 8 gpu.
         weight_decay=0.05,
         eps=1e-8,
         betas=(0.9, 0.999)),
@@ -33,9 +33,9 @@ param_scheduler = [
     # main learning rate scheduler
     dict(
         type='CosineAnnealingLR',
-        T_max=295,
+        T_max=25,
         eta_min=1e-5,
         by_epoch=True,
         begin=5,
-        end=300)
+        end=30)
 ]
