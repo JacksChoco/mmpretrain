@@ -19,7 +19,7 @@ train_pipeline = [
         scale=256,
         backend='pillow',
         interpolation='bicubic'),
-    dict(type='RandomFlip', prob=0.5, direction='horizontal'),
+    # dict(type='RandomFlip', prob=0.5, direction='horizontal'),
     # dict(
     #     type='RandAugment',
     #     policies='timm_increasing',
