@@ -14,7 +14,7 @@ bgr_std = data_preprocessor['std'][::-1]
 
 train_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(type='CenterCrop', crop_size=224),
+    dict(type='Resize', scale=224),
     dict(type='RandomFlip', prob=0.5, direction='horizontal'),
     # dict(
     #     type='RandAugment',
