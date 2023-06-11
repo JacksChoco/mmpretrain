@@ -2,6 +2,8 @@ _base_ = [
     'efficientnetv2-s_8xb32_in1k-384px.py',
 ]
 
+data_root="caries"
+
 # model setting
 model = dict(backbone=dict(arch='xl'), )
 
@@ -18,6 +20,14 @@ test_pipeline = [
     dict(type='PackInputs'),
 ]
 
-train_dataloader = dict(dataset=dict(pipeline=train_pipeline))
-val_dataloader = dict(dataset=dict(pipeline=test_pipeline))
-test_dataloader = dict(dataset=dict(pipeline=test_pipeline))
+train_dataloader = dict(
+    dataset=dict(
+        pipeline=train_pipeline,
+        data_root=data_root + "/train"
+    ))
+val_dataloader = dict(dataset=dict(pipeline=test_pipeline,
+                                   data_root=data_root + '/valid'
+                                   ))
+test_dataloader = dict(dataset=dict(pipeline=test_pipeline,
+                                    data_root=data_root + '/test',
+                                    ))
