@@ -38,13 +38,7 @@ train_pipeline = [
 
 test_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(
-        type='ResizeEdge',
-        scale=256,
-        edge='short',
-        backend='pillow',
-        interpolation='bicubic'),
-    dict(type='CenterCrop', crop_size=224),
+    dict(type='Resize', scale=224),
     dict(type='PackInputs'),
 ]
 
