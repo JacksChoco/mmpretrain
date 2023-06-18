@@ -5,13 +5,15 @@ _base_ = [
     '../_base_/default_runtime.py',
 ]
 
+data_root="caries"
+
 # model setting
-model = dict(head=dict(num_classes=21843))
+model = dict(head=dict(num_classes=3))
 
 # dataset settings
 dataset_type = 'ImageNet21k'
 data_preprocessor = dict(
-    num_classes=21843,
+    num_classes=3,
     # RGB format normalization parameters
     mean=[127.5, 127.5, 127.5],
     std=[127.5, 127.5, 127.5],
@@ -21,20 +23,23 @@ data_preprocessor = dict(
 
 train_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(type='EfficientNetRandomCrop', scale=224),
+    dict(type='Resize', scale=224),
     dict(type='RandomFlip', prob=0.5, direction='horizontal'),
     dict(type='PackInputs'),
 ]
 
 test_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(type='EfficientNetCenterCrop', crop_size=224, crop_padding=0),
+    dict(type='Resize', scale=224),
     dict(type='PackInputs'),
 ]
 
-train_dataloader = dict(dataset=dict(pipeline=train_pipeline))
-val_dataloader = dict(dataset=dict(pipeline=test_pipeline))
-test_dataloader = dict(dataset=dict(pipeline=test_pipeline))
+train_dataloader = dict(dataset=dict(pipeline=train_pipeline,
+        data_root=data_root,))
+val_dataloader = dict(dataset=dict(pipeline=test_pipeline,
+        data_root=data_root,))
+test_dataloader = dict(dataset=dict(pipeline=test_pipeline,
+        data_root=data_root,))
 
 # schedule setting
 optim_wrapper = dict(
