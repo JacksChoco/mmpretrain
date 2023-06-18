@@ -68,7 +68,7 @@ CUB_CATEGORIES = (
     'Common_Yellowthroat')
 
 IMAGENET_CATEGORIES = (
-    'caries','deepCaries','normal')
+    'caries','normal')
 
 CIFAR10_CATEGORIES = ('airplane', 'automobile', 'bird', 'cat', 'deer', 'dog',
                       'frog', 'horse', 'ship', 'truck')

@@ -8,12 +8,12 @@ _base_ = [
 data_root="caries"
 
 # model setting
-model = dict(head=dict(num_classes=3))
+model = dict(head=dict(num_classes=2))
 
 # dataset settings
 dataset_type = 'ImageNet21k'
 data_preprocessor = dict(
-    num_classes=3,
+    num_classes=2,
     # RGB format normalization parameters
     mean=[127.5, 127.5, 127.5],
     std=[127.5, 127.5, 127.5],
