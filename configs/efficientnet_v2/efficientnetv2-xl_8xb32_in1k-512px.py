@@ -9,14 +9,14 @@ model = dict(backbone=dict(arch='xl'), )
 
 train_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(type='EfficientNetCenterCrop', scale=384, crop_padding=0),
+    dict(type='Resize', size=384),
     dict(type='RandomFlip', prob=0.5, direction='horizontal'),
     dict(type='PackInputs'),
 ]
 
 test_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(type='EfficientNetCenterCrop', crop_size=512, crop_padding=0),
+    dict(type='Resize', size=512),
     dict(type='PackInputs'),
 ]
 
