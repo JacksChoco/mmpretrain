@@ -23,11 +23,14 @@ test_pipeline = [
 train_dataloader = dict(
     dataset=dict(
         pipeline=train_pipeline,
-        data_root=data_root
+        data_root=data_root,
+        classes=3,
     ))
 val_dataloader = dict(dataset=dict(pipeline=test_pipeline,
-                                   data_root=data_root
+                                   data_root=data_root,
+                                   classes=3,
                                    ))
 test_dataloader = dict(dataset=dict(pipeline=test_pipeline,
-                                    data_root=data_root
+                                    data_root=data_root,
+                                    classes=3,
                                     ))
