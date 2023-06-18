@@ -18,7 +18,7 @@ data_preprocessor = dict(
 
 train_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(type='EfficientNetRandomCrop', scale=300, crop_padding=0),
+    dict(type='EfficientNetCenterCrop', scale=300, crop_padding=0),
     dict(type='RandomFlip', prob=0.5, direction='horizontal'),
     dict(type='PackInputs'),
 ]
