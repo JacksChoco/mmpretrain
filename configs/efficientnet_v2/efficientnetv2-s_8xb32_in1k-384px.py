@@ -8,7 +8,7 @@ _base_ = [
 # dataset settings
 dataset_type = 'ImageNet'
 data_preprocessor = dict(
-    num_classes=1000,
+    num_classes=3,
     # RGB format normalization parameters
     mean=[127.5, 127.5, 127.5],
     std=[127.5, 127.5, 127.5],
