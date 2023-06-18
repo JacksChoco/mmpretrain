@@ -914,7 +914,7 @@ class TestVisionTransformWrapper(TestCase):
         vision_trans = transforms.Resize(224, interpolation_t)
         vision_transformed_img = vision_trans(data['img'])
         mmcls_trans = TRANSFORMS.build(
-            dict(type='torchvision/Resize', size=224, interpolation='nearest'))
+            dict(type='torchvision/Resize', scale=224, interpolation='nearest'))
         mmcls_transformed_img = mmcls_trans(data)['img']
         np.equal(
             np.array(vision_transformed_img), np.array(mmcls_transformed_img))
@@ -934,7 +934,7 @@ class TestVisionTransformWrapper(TestCase):
         pipeline_cfg = [
             dict(type='LoadImageFromFile'),
             dict(type='NumpyToPIL', to_rgb=True),
-            dict(type='torchvision/Resize', size=176),
+            dict(type='torchvision/Resize', scale=176),
             dict(type='torchvision/RandomHorizontalFlip'),
             dict(type='torchvision/PILToTensor'),
             dict(type='torchvision/ConvertImageDtype', dtype='float'),
